@@ -192,7 +192,7 @@ export default class PhoneBook extends React.Component<
     try {
       const listItems = await this.sp.web.lists
         .getById(this.props.PhoneBookTableId)
-        .items();
+        .items.top(1000)();
 
       const mappedItems: IContact[] = listItems
         .filter((item: any) => item.show === true)
