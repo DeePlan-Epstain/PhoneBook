@@ -1,40 +1,40 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
-  "solution": {
-    "name": "phone-book-client-side-solution",
-    "id": "b09564cb-5182-4b4b-9048-8a95298a5ab4",
-    "version": "1.0.0.2",
-    "includeClientSideAssets": true,
-    "skipFeatureDeployment": true,
-    "isDomainIsolated": false,
-    "developer": {
-      "name": "",
-      "websiteUrl": "",
-      "privacyUrl": "",
-      "termsOfUseUrl": "",
-      "mpnId": "Undefined-1.16.1"
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+    "solution": {
+        "name": "phone-book-client-side-solution",
+        "id": "b09564cb-5182-4b4b-9048-8a95298a5ab4",
+        "version": "1.0.0.3",
+        "includeClientSideAssets": true,
+        "skipFeatureDeployment": true,
+        "isDomainIsolated": false,
+        "developer": {
+            "name": "",
+            "websiteUrl": "",
+            "privacyUrl": "",
+            "termsOfUseUrl": "",
+            "mpnId": "Undefined-1.16.1"
+        },
+        "metadata": {
+            "shortDescription": {
+                "default": "phone-book description"
+            },
+            "longDescription": {
+                "default": "phone-book description"
+            },
+            "screenshotPaths": [],
+            "videoUrl": "",
+            "categories": []
+        },
+        "features": [
+            {
+                "title": "phone-book Feature",
+                "description": "The feature that activates elements of the phone-book solution.",
+                "id": "dd7bc22a-1333-4898-9743-b720888c1005",
+                "version": "1.0.0.0"
+            }
+        ]
     },
-    "metadata": {
-      "shortDescription": {
-        "default": "phone-book description"
-      },
-      "longDescription": {
-        "default": "phone-book description"
-      },
-      "screenshotPaths": [],
-      "videoUrl": "",
-      "categories": []
-    },
-    "features": [
-      {
-        "title": "phone-book Feature",
-        "description": "The feature that activates elements of the phone-book solution.",
-        "id": "dd7bc22a-1333-4898-9743-b720888c1005",
-        "version": "1.0.0.0"
-      }
-    ]
-  },
-  "paths": {
-    "zippedPackage": "solution/phone-book.sppkg"
-  }
+    "paths": {
+        "zippedPackage": "solution/phone-book.sppkg"
+    }
 }
