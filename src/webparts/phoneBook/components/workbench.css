@@ -1,16 +1,3 @@
-/* Set the workbench and canvas to full width */
-/* div[class='CanvasZone'] {
-    width: 100% !important;
-  }
-  
-  div[class='CanvasZone'] > div {
-    width: 100% !important;
-  }
-  
-  /* Adjust the padding for the web part content */
-/* div[class='ControlZone'] { */
-/* padding: 0 !important; */
-/* }  */
 div[data-automation-id="CanvasZone"] {
   padding: 0 !important;
   margin: 0 !important;
@@ -103,10 +90,10 @@ div[data-automation-id="CanvasSection"] {
 }
 
 .our-team {
-  width: 130px;
-  height: 240px;
+  width: 210px;
+  height: 250px;
+  padding: 20px 40px;
   margin: 5px;
-  padding: 25px 80px;
   background-color: #e5eaee;
   border-radius: 45px;
   text-align: center;
@@ -114,7 +101,34 @@ div[data-automation-id="CanvasSection"] {
   position: relative;
   transition: box-shadow 0.3s ease;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* Changes implemented :  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.team-content {
+  width: 100%;
+  height: 100%;
+  max-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 1rem;
+
+  .span{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+  }
+}
+
 
 .our-team:hover {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
@@ -122,10 +136,21 @@ div[data-automation-id="CanvasSection"] {
 
 .our-team .picture {
   display: inline-block;
-  height: 130px;
-  width: 130px;
+  height: 90px;
+  width: 90px;
   z-index: 1;
   position: relative;
+}
+
+.textInfo {
+  font-size: 14px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  text-align: center;
 }
 
 .our-team .picture::before {
@@ -169,7 +194,7 @@ div[data-automation-id="CanvasSection"] {
 
 .our-team:hover .picture img {
   box-shadow: 0 0 0 14px #e5eaee;
-  transform: scale(0.7);
+  transform: scale(0.85);
 }
 
 .our-team .title {

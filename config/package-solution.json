@@ -3,7 +3,7 @@
   "solution": {
     "name": "phone-book-client-side-solution",
     "id": "b09564cb-5182-4b4b-9048-8a95298a5ab4",
-    "version": "1.0.0.1",
+    "version": "1.0.0.2",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,

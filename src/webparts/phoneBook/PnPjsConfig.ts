@@ -11,7 +11,7 @@ import "@pnp/sp/profiles"
 import { WebPartContext } from "@microsoft/sp-webpart-base";
 import { spfi, SPFI, SPFx } from "@pnp/sp";
 
-var _sp: any = null;
+let _sp: SPFI | null = null;
 
 const getSP = (context: WebPartContext): SPFI => {
   _sp = spfi().using(SPFx(context));

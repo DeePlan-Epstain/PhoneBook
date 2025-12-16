@@ -6,7 +6,6 @@ import { IPhoneBookProps } from "./IPhoneBookProps";
 import { IPhoneBookState } from "./IPhoneBookState";
 import { ThemeProvider, StylesProvider } from "@material-ui/core/styles";
 import { TextField, withStyles } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import SearchIcon from "@material-ui/icons/Search";
 import { spfi, SPFx } from "@pnp/sp";
@@ -22,6 +21,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Dialog from "@material-ui/core/Dialog";
 import { Web } from "@pnp/sp/webs";
 import { Item } from "@pnp/sp/items";
+import Button from "@material-ui/core/Button";
+
 
 interface IContact {
   displayName: string;
@@ -30,6 +31,9 @@ interface IContact {
   phoneNumber: string;
   Email: string;
   ID: string;
+  Division: string;
+  Role: string;
+  secondPhoneNumber: string;
 }
 
 const WithStylesTextField = withStyles({
@@ -216,21 +220,11 @@ export default class PhoneBook extends React.Component<
           phoneNumber: item.phoneNumber,
           Email: item.Email,
           ID: item.ID,
-
+          Division  : item.Division !== null ? item.Division : "",
+          Role  : item.Role !== null ? item.Role : "",
+          secondPhoneNumber  : item.secondPhoneNumber !== null ? item.secondPhoneNumber : "",
         }));
-
       let s: { Title: any; url: any; }[] = [];
-      // const listItems2 = await this.props.sp.web.lists.getByTitle("לקוחות").items
-      //   .select('Title', 'logo', 'AttachmentFiles') // בחר את השדות שאתה צריך
-      //   .expand('AttachmentFiles') // הרחב את קובצי הקבצים המצורפים
-      //   .getAll();
-
-      // listItems2.map((Item: any) => {
-      //   if (Item.logo !== null) {
-      //     s.push({ Title: Item.Title, url: Item.AttachmentFiles[0].ServerRelativeUrl })
-
-      //   }
-      // })
 
       this.setState(
         {
@@ -266,6 +260,7 @@ export default class PhoneBook extends React.Component<
     const { SearchValue, PageSize, Contacts } = this.state;
     let FilteredContacts: Array<IContact> = Contacts;
 
+
     // Convert the search value to lowercase for case-insensitive comparison
     const lowerCaseSearchValue = SearchValue.trim().toLowerCase();
 
@@ -279,7 +274,9 @@ export default class PhoneBook extends React.Component<
           contact.displayName,
           contact.lastName,
           contact.firstName,
-
+          contact.Division,
+          contact.Role,
+          contact.secondPhoneNumber,
         ];
 
         // Check if the search value exists in any of the fields
@@ -323,6 +320,7 @@ export default class PhoneBook extends React.Component<
       PageNumber: page,
     });
   };
+  
 
   public render(): React.ReactElement<IPhoneBookProps> {
     const StyledPagination = withStyles((theme) => ({
@@ -336,8 +334,6 @@ export default class PhoneBook extends React.Component<
         },
       },
     }))(Pagination);
-
-    const buttonStyle = { color: "#ffff", width: "120px", fontSize: "17px" };
 
     return (
       <section className={` ${styles.PhoneBookMainCon}`}>
@@ -450,8 +446,20 @@ export default class PhoneBook extends React.Component<
                           </div>
 
                           <div className="team-content">
-                            <h3 className="name">{item.displayName}</h3>
+                            {/* <h3 className="name">{item.displayName}</h3>
                             <h3 className="name">{item.phoneNumber}</h3>
+                            {item.Division && <h3 className="name">{item.Division}</h3>}
+                            {item.Role && <h3 className="name">{item.Role}</h3>}
+                            {item.secondPhoneNumber && <h3 className="name">{item.secondPhoneNumber}</h3>} */}
+
+                            {/* <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', width: '100%', height: '100%' }}> */}
+                              {/* FontSize 14px to all of them, image 80x80px */}
+                              <span className="textInfo" style={{fontWeight:"bold"}}>{item.displayName}</span>
+                              <span className="textInfo">{item.phoneNumber}</span>
+                              {item.secondPhoneNumber && <span className="textInfo">{item.secondPhoneNumber}</span>}
+                              {item.Division && <span className="textInfo">{item.Division}</span>}
+                              {item.Role && <span className="textInfo">{item.Role}</span>}
+                            {/* </span> */}
                           </div>
                           <ul className="social">
                             <li>

@@ -10,7 +10,8 @@
     "build": "gulp bundle",
     "clean": "gulp clean",
     "test": "gulp test",
-    "start": "gulp bundle --custom-serve --max_old_space_size=4096 && fast-serve"
+    "start": "gulp bundle --custom-serve --max_old_space_size=4096 && fast-serve",
+    "createSppkg": "gulp clean && gulp bundle --ship && gulp package-solution --ship"
   },
   "dependencies": {
     "@emotion/cache": "^11.10.5",
@@ -46,7 +47,7 @@
     "@types/webpack-env": "~1.15.2",
     "ajv": "^6.12.5",
     "eslint-plugin-react-hooks": "4.3.0",
-    "gulp": "4.0.2",
+    "gulp": "^4.0.2",
     "spfx-fast-serve-helpers": "~1.16.0",
     "typescript": "4.5.5"
   }
